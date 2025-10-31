@@ -1,0 +1,8 @@
+quarkus:
+
+  application:
+    name: template-java-quarkus
+
+  http:
+    port: 8080
+    root-path: /api
