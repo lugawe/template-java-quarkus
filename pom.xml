@@ -18,18 +18,15 @@
     </modules>
 
     <properties>
-        <!-- general -->
-        <project.encoding>UTF-8</project.encoding>
+        <!-- project -->
+        <encoding>UTF-8</encoding>
         <java.version>21</java.version>
         <!-- dependencies -->
-        <quarkus.version>3.29.0</quarkus.version>
-        <!-- plugins -->
-        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
-        <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
-        <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
-        <jandex-maven-plugin.version>3.5.1</jandex-maven-plugin.version>
-        <!-- code style -->
-        <spotless-maven-plugin.version>3.0.0</spotless-maven-plugin.version>
+        <quarkus.version>3.29.2</quarkus.version>
+        <!-- maven plugins -->
+        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
     <dependencyManagement>
@@ -68,35 +65,9 @@
         <plugins>
 
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>${maven-resources-plugin.version}</version>
-                <configuration>
-                    <encoding>${project.encoding}</encoding>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${project.encoding}</encoding>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
-            </plugin>
-
-            <plugin>
                 <groupId>io.smallrye</groupId>
                 <artifactId>jandex-maven-plugin</artifactId>
-                <version>${jandex-maven-plugin.version}</version>
+                <version>3.5.1</version>
                 <executions>
                     <execution>
                         <id>make-index</id>
@@ -126,14 +97,14 @@
             <plugin>
                 <groupId>com.diffplug.spotless</groupId>
                 <artifactId>spotless-maven-plugin</artifactId>
-                <version>${spotless-maven-plugin.version}</version>
+                <version>3.0.0</version>
                 <configuration>
                     <pom>
                         <includes>
                             <include>pom.xml</include>
                         </includes>
                         <sortPom>
-                            <encoding>${project.encoding}</encoding>
+                            <encoding>${encoding}</encoding>
                             <nrOfIndentSpace>4</nrOfIndentSpace>
                         </sortPom>
                     </pom>
@@ -143,6 +114,13 @@
                             <order>java,jakarta,javax</order>
                         </importOrder>
                     </java>
+                    <yaml>
+                        <includes>
+                            <include>**/*.yml</include>
+                            <include>**/*.yaml</include>
+                        </includes>
+                        <jackson/>
+                    </yaml>
                 </configuration>
             </plugin>
 
