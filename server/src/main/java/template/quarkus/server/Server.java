@@ -6,6 +6,8 @@ import io.quarkus.runtime.annotations.QuarkusMain;
 @QuarkusMain
 public class Server {
 
+    public Server() {}
+
     public static void main(String[] args) {
         Quarkus.run(args);
     }
