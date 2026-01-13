@@ -10,7 +10,7 @@ RUN --mount=type=cache,target=/root/.m2 mvn -B quarkus:go-offline
 
 COPY src ./src
 
-RUN --mount=type=cache,target=/root/.m2 mvn -B clean package -DskipTests
+RUN --mount=type=cache,target=/root/.m2 mvn -B -DskipTests clean package
 
 # RUNTIME
 
