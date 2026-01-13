@@ -20,7 +20,9 @@ RUN addgroup -S quarkus && adduser -S -G quarkus quarkus
 
 WORKDIR /app
 
-COPY --from=build --chown=quarkus:quarkus /app/target/quarkus-app /app
+COPY --from=build /app/target/quarkus-app /app
+
+RUN chown -R quarkus:quarkus /app
 
 USER quarkus
 
