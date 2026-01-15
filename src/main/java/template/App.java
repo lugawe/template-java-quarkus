@@ -8,7 +8,7 @@ public class App {
 
     public App() {}
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         Quarkus.run(args);
     }
 }
