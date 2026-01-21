@@ -16,7 +16,7 @@
         <project.encoding>UTF-8</project.encoding>
         <java.version>25</java.version>
         <!-- dependencies -->
-        <quarkus.version>3.30.6</quarkus.version>
+        <quarkus.version>3.31.0</quarkus.version>
         <!-- code style -->
         <spotless-maven-plugin.version>3.1.0</spotless-maven-plugin.version>
         <!-- maven plugins -->
@@ -28,7 +28,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>io.quarkus.platform</groupId>
+                <groupId>io.quarkus</groupId>
                 <artifactId>quarkus-bom</artifactId>
                 <version>${quarkus.version}</version>
                 <type>pom</type>
@@ -65,7 +65,7 @@
 
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-junit5</artifactId>
+            <artifactId>quarkus-junit</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -78,12 +78,30 @@
     </dependencies>
 
     <build>
+
+        <pluginManagement>
+            <plugins>
+
+                <plugin>
+                    <groupId>io.quarkus</groupId>
+                    <artifactId>quarkus-maven-plugin</artifactId>
+                    <version>${quarkus.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.diffplug.spotless</groupId>
+                    <artifactId>spotless-maven-plugin</artifactId>
+                    <version>${spotless-maven-plugin.version}</version>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+
         <plugins>
 
             <plugin>
-                <groupId>io.quarkus.platform</groupId>
+                <groupId>io.quarkus</groupId>
                 <artifactId>quarkus-maven-plugin</artifactId>
-                <version>${quarkus.version}</version>
                 <extensions>true</extensions>
                 <executions>
                     <execution>
@@ -99,7 +117,6 @@
             <plugin>
                 <groupId>com.diffplug.spotless</groupId>
                 <artifactId>spotless-maven-plugin</artifactId>
-                <version>${spotless-maven-plugin.version}</version>
                 <configuration>
                     <pom>
                         <includes>
