@@ -16,7 +16,7 @@
         <project.encoding>UTF-8</project.encoding>
         <java.version>25</java.version>
         <!-- dependencies -->
-        <quarkus.version>3.31.1</quarkus.version>
+        <quarkus.version>3.32.0</quarkus.version>
         <!-- code style -->
         <spotless-maven-plugin.version>3.2.1</spotless-maven-plugin.version>
         <!-- maven plugins -->
@@ -129,7 +129,7 @@
                     </pom>
                     <java>
                         <palantirJavaFormat>
-                            <version>2.83.0</version>
+                            <version>2.87.0</version>
                         </palantirJavaFormat>
                         <importOrder>
                             <order>java,jakarta,javax</order>
