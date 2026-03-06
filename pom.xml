@@ -16,9 +16,9 @@
         <project.encoding>UTF-8</project.encoding>
         <java.version>25</java.version>
         <!-- dependencies -->
-        <quarkus.version>3.32.0</quarkus.version>
+        <quarkus.version>3.32.2</quarkus.version>
         <!-- code style -->
-        <spotless-maven-plugin.version>3.2.1</spotless-maven-plugin.version>
+        <spotless-maven-plugin.version>3.3.0</spotless-maven-plugin.version>
         <!-- maven plugins -->
         <project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -125,16 +125,17 @@
                         <sortPom>
                             <encoding>${project.encoding}</encoding>
                             <nrOfIndentSpace>4</nrOfIndentSpace>
+                            <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
                         </sortPom>
                     </pom>
                     <java>
                         <palantirJavaFormat>
-                            <version>2.87.0</version>
+                            <version>2.89.0</version>
                         </palantirJavaFormat>
                         <importOrder>
                             <order>java,jakarta,javax</order>
                         </importOrder>
-                        <forbidModuleImports/>
+                        <forbidModuleImports />
                     </java>
                 </configuration>
             </plugin>
